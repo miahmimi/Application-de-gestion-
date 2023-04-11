@@ -1343,13 +1343,13 @@ namespace MediaTekDocuments.view
                 if (result == DialogResult.Yes)
                 {
                     DataGridViewRow row = dgvcommandeLivre.SelectedRows[0];
-                    // string id = Convert.ToString(row.Cells[4].Value);
-                     // controller.deletecommande(id);
-                     // controller.deletecommandedocument(id);
+                     string id = Convert.ToString(row.Cells[4].Value);
+                      controller.deletecommande(id);
+                      //controller.deletecommandedocument(id);
 
                     dgvcommandeLivre.Rows.Remove(row);
                     
-                    // dgvcommandeLivre.Rows .Remove(row);
+                     dgvcommandeLivre.Rows .Remove(row);
                 }
                 
 
