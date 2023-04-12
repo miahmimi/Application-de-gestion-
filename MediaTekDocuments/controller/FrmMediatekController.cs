@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using MediaTekDocuments.model;
 using MediaTekDocuments.dal;
+using System;
 
 namespace MediaTekDocuments.controller
 {
@@ -101,17 +102,30 @@ namespace MediaTekDocuments.controller
         {
             return access.GetAllcommandeLivre();
         }
-        public void addcommandeLivre(Commande cmd)
+        public void AddcommandeLivre(Commande cmd)
         {
             access.addcommandeLivre(cmd);
         }
-        public void deletecommande(string id)
+        public void Deletecommande(string id)
         {
             access.deletecommande(id);
         }
-        publiv void deletecommandedocument(string id)
+        public void Deletecommandedocument(string id)
         {
             access.deletecommandedocument(id);
         }
+        public List<Cmdrevue>Getallrevuecmd()
+        {
+            return access.Getallrevuecmd();
+        }
+        public List<DateTime> Getdateachat(int num)
+        {
+            return access.Getdateachat(num);
+        }
+        public List<CmdLivre> Getalldvdcmd()
+        {
+            return access.Getalldvdcmd();
+        }
     }
+
 }

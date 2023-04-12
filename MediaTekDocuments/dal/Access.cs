@@ -185,6 +185,23 @@ namespace MediaTekDocuments.dal
         {
             TraitementRecup<CmdLivre>(DELETE, "commandedocument/" + id);
         }
+        public List<Cmdrevue> Getallrevuecmd()
+        {
+            List<Cmdrevue> liste=TraitementRecup<Cmdrevue>(GET, "commanderevue");
+            return liste;
+        }
+
+        public List<DateTime> Getdateachat(int num)
+        {
+           List<DateTime>lesdates= TraitementRecup<DateTime>(GET, "exemplairedate/"+num);
+            return lesdates;
+        }
+        
+        public List<CmdLivre> Getalldvdcmd()
+        {
+            List<CmdLivre> lesdates = TraitementRecup<CmdLivre>(GET, "commandedvd" );
+            return lesdates;
+        }
 
         /// <summary>
         /// Traitement de la récupération du retour de l'api, avec conversion du json en liste pour les select (GET)
