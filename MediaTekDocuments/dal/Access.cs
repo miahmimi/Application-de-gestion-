@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.Configuration;
-
+using Serilog;
 namespace MediaTekDocuments.dal
 {
     /// <summary>
@@ -62,7 +62,15 @@ namespace MediaTekDocuments.dal
                 Console.WriteLine(e.Message);
                 Environment.Exit(0);
             }
+            Log.Logger = new LoggerConfiguration()
+               .MinimumLevel.Verbose()
+               .WriteTo.Console()
+               .WriteTo.File("logs/log/txt",
+               rollingInterval: RollingInterval.Day)
+                .CreateLogger();
+
         }
+        
 
         /// <summary>
         /// Création et retour de l'instance unique de la classe
@@ -165,6 +173,8 @@ namespace MediaTekDocuments.dal
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                Log.Debug("erreur lors de la recuperation de la liste d'exemplaire ");
+
             }
             return false; 
         }
@@ -239,10 +249,12 @@ namespace MediaTekDocuments.dal
                 else
                 {
                     Console.WriteLine("code erreur = " + code + " message = " + (String)retour["message"]);
+                    Log.Debug("la requete n'estpas correcte ");
                 }
             }catch(Exception e)
             {
                 Console.WriteLine("Erreur lors de l'accès à l'API : "+e.Message);
+                Log.Debug("Erreur lors de l'acces a l'Api ");
                 Environment.Exit(0);
             }
             return liste;
