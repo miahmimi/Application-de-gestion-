@@ -126,6 +126,10 @@ namespace MediaTekDocuments.controller
         {
             return access.Getalldvdcmd();
         }
+        public List<lesutilisateurs> verifadmin(Utilisateur un)
+        {
+            return access.verifadmin(un);
+        }
     }
 
 }

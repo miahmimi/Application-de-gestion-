@@ -202,6 +202,11 @@ namespace MediaTekDocuments.dal
             List<CmdLivre> lesdates = TraitementRecup<CmdLivre>(GET, "commandedvd" );
             return lesdates;
         }
+        public List<lesutilisateurs> verifadmin(Utilisateur un)
+        {
+            List<lesutilisateurs>liste= TraitementRecup<lesutilisateurs>(GET, "authentification/"+un);
+            return liste;
+        }
 
         /// <summary>
         /// Traitement de la récupération du retour de l'api, avec conversion du json en liste pour les select (GET)
