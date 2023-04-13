@@ -44,14 +44,17 @@ namespace MediaTekDocuments.dal
 
         /// <summary>
         /// Méthode privée pour créer un singleton
-        /// initialise l'accès à l'API
-        /// </summary>
+        /// initialise l'ac<cès à l'APIj,
+        /// </summary>  bbcv
         private Access()
         {
             String authenticationString;
             try
             {
-                authenticationString = "admin:adminpwd";
+                string login = ConfigurationManager.AppSettings["login"];
+                string motDePasse = ConfigurationManager.AppSettings["motdepasse"];
+
+                authenticationString = login + ":" + motDePasse;
                 api = ApiRest.GetInstance(uriApi, authenticationString);
             }
             catch (Exception e)
